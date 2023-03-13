@@ -54,6 +54,8 @@ jobs:
             cd frontend
             npm install
             npm run test
+      - store_test_results:
+        path: test-results
 
 
 workflows:
