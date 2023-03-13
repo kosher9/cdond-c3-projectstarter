@@ -47,20 +47,37 @@ jobs:
       # Your job code here
       - checkout
       - restore_cache:
-          keys: [frontend-build]
+          keys: [test-frontend-build]
       - run:
           name: Build front-end test
           command: |
             cd frontend
             npm install
             npm run test
-      # - store_test_results:
-        # path: test-results
 
+  test-backend:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      # Checkout code from git
+      # Restore from cache
+      # Your job code here
+      - checkout
+      - restore_cache:
+          keys: [test-backend-build]
+      - run:
+          name: Build back-end test
+          command: |
+            cd backend
+            npm install
+            npm run test
 
 workflows:
   default:
     jobs:
       - build-frontend
       - build-backend
-      - test-frontend
+      - test-frontend:
+        require: [build-frontend]
+      - test-backend:
+        require: [build-backend]
