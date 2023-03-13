@@ -30,7 +30,6 @@ jobs:
       - run:
           name: Build back-end
           command: |
-             # Your code here
             cd frontend
             npm install
             npm run build
