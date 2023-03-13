@@ -38,7 +38,6 @@ jobs:
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build
-      - command:
 
 
 workflows:
