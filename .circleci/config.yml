@@ -71,13 +71,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys: [frontend-build]
+          keys: [frontend-build]
       - run:
-        name: Scan frontend
-        command: |
-          cd frontend
-          npm install
-          npm audit --audit-level=critical
+          name: Scan frontend
+          command: |
+            cd frontend
+            npm install
+            npm audit --audit-level=critical
 
   scan-backend:
     docker:
@@ -85,13 +85,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys: [backend-build]
+          keys: [backend-build]
       - run:
-        name: Scan backend
-        command: |
-          cd backend
-          npm install
-          npm audit --audit-level=critical
+          name: Scan backend
+          command: |
+            cd backend
+            npm install
+            npm audit --audit-level=critical
 
 workflows:
   default:
@@ -99,10 +99,10 @@ workflows:
       - build-frontend
       - build-backend
       - test-frontend:
-        require: [build-frontend]
+          require: [build-frontend]
       - test-backend:
-        require: [build-backend]
+          require: [build-backend]
       - scan-frontend:
-        require: [build-frontend]
+          require: [build-frontend]
       - scan-backend:
-        require: [build-backend]
+          require: [build-backend]
