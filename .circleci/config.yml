@@ -146,11 +146,8 @@ jobs:
               --stack-name "udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}" \
               --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}"
       - run:
-          name: Install tar
-          command: 'sudo yum search tar'
-      - run: 
-          name: Install gzip
-          command: 'sudo apt install gzip'
+          name: yum -y install tar gzip
+          command: 'yum -y install tar gzip'
       - run:
           name: Ensure front-end infrastructure exist
           command: |
