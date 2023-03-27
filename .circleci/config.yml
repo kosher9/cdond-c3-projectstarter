@@ -215,13 +215,13 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-        name: Install python
-        command: |
-          apt install python3
+          name: Install python
+          command: |
+            apt install python3
       - run:
-        name: Install ansible
-        command: |
-          apk add --update ansible
+          name: Install ansible
+          command: |
+            apk add --update ansible
       - run:
           name: Install node and npm dependencies
           command: |
