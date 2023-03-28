@@ -442,13 +442,13 @@ jobs:
               if curl -s "${Frontend_URL}" | grep "Welcome"
               then
                   # Change this to 0 after the job fails
-                exit 1
+                exit 0
               else
                 exit 1
               fi
       # Here's where you will add some code to rollback on failure
-      # - notify_on_success
-      # - notify_on_crash
+      - notify_on_success
+      - notify_on_crash
       - destroy-environment
       - revert-migrations
       
