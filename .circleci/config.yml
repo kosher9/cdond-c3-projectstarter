@@ -447,8 +447,8 @@ jobs:
                 exit 1
               fi
       # Here's where you will add some code to rollback on failure
-      - notify_on_success
-      - notify_on_crash
+      # - notify_on_success
+      # - notify_on_crash
       - destroy-environment
       - revert-migrations
       
