@@ -45,10 +45,10 @@ commands:
   
   #Alert Slack
   notify_on_crash:
-    description: Notify slack channel with custorm message
+    description: Notify slack channel with custom message
     steps:
       - slack/notify:
-          channel: C04R0FE40LC
+          channel: C04D2J7UMTK
           event: fail
           template: basic_fail_1
 
@@ -56,7 +56,7 @@ commands:
     description: Notify slack channel when a build run's succeffully
     steps:
       - slack/notify:
-          channel: C04R0FE40LC
+          channel: C04D2J7UMTK
           event: pass
           template: success_tagged_deploy_1
 
