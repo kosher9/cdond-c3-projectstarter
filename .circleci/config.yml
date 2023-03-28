@@ -532,8 +532,14 @@ jobs:
 workflows:
   my_workflows:
     jobs:
-      - build-frontend
-      - build-backend
+      - build-frontend:
+          filters:
+            branches:
+              only: [master, dev-branch]
+      - build-backend:
+          filters:
+            branches:
+              only: [master, dev-branch]
       - test-frontend:
           requires: [build-frontend]
       - test-backend:
