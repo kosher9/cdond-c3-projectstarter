@@ -57,7 +57,7 @@ commands:
           when: on_fail
           command: |
 
-            SUCCESS=$(curl --insecure https://kvdb.io/XcqXyR9xndSXKRro1mcwPj/migration_$\{CIRCLE_WORKFLOW_ID:0:7\})
+            SUCCESS=$(curl --insecure https://kvdb.io/XcqXyR9xndSXKRro1mcwPj/migration_${CIRCLE_WORKFLOW_ID:0:7})
             if [[ $SUCCESS == 1 ]]
             then
               cd ~/project/backend
@@ -224,12 +224,12 @@ jobs:
 
   run-migrations:
     docker:
-      - image: cimg/python:3.10
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
           keys: [backend-build]
-      - install_nodejs
+      # - install_nodejs
       - install_awscli
       - run:
           name: Run migrations
