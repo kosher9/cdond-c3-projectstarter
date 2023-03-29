@@ -520,7 +520,6 @@ jobs:
                 echo "-----------------Delete Confirmed--------------------------"
                 aws s3 rb s3://"${OldInitialWorkflowID}" --force
 
-
             else
                 echo "-----------------Nothing to Cleanup-----------------------------"
             fi
