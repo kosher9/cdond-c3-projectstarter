@@ -502,7 +502,7 @@ jobs:
       - install_dependencies
       
       - run:
-          name: Remove old stacks and files
+          name: Remove old stacks and files 
           command: |
           
             # Fetch the Old workflow ID
