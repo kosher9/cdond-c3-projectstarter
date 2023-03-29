@@ -519,6 +519,10 @@ jobs:
             then
                 echo "-----------------Delete Confirmed--------------------------"
                 aws s3 rb s3://"${OldInitialWorkflowID}" --force
+                aws cloudformation delete-stack --stack-name udapeople-backend-67ed83a
+                aws cloudformation delete-stack --stack-name udapeople-frontend-67ed83a
+                aws cloudformation delete-stack --stack-name udapeople-backend-3d9e3d8
+                aws cloudformation delete-stack --stack-name udapeople-frontend-3d9e3d8
 
             else
                 echo "-----------------Nothing to Cleanup-----------------------------"
