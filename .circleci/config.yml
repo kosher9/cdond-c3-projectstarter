@@ -278,11 +278,11 @@ jobs:
             cat inventory.txt
             ansible-playbook -i inventory.txt configure-server.yml
 
-      # - run:
-      #     name: run node-exporter
-      #     command: |
-      #       cd .circleci/ansible
-      #       ansible-playbook -i inventory.txt configure-node-exporter.yml
+      - run:
+          name: run node-exporter
+          command: |
+            cd .circleci/ansible
+            ansible-playbook -i inventory.txt configure-node-exporter.yml
       - notify_on_success
       - notify_on_crash
       - destroy-environment
@@ -518,7 +518,7 @@ jobs:
             if [[ "${OldInitialWorkflowID}" != "${WorkflowID}" ]]
             then
                 echo "-----------------Delete Confirmed--------------------------"
-                # aws s3 rb s3://"${OldInitialWorkflowID}" --force
+                aws s3 rb s3://"${OldInitialWorkflowID}" --force
                 aws cloudformation delete-stack --stack-name udapeople-backend-67ed83a
                 aws cloudformation delete-stack --stack-name udapeople-frontend-67ed83a
                 aws cloudformation delete-stack --stack-name udapeople-backend-3d9e3d8
