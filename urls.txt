@@ -2,7 +2,7 @@
 https://github.com/kosher9/cdond-c3-projectstarter
 
 [URL02-S3-Bucket-Website]
-http://udapeople-dc833cb.s3-website-us-east-1.amazonaws.com/
+http://udapeople-12ead94.s3-website-us-east-1.amazonaws.com/
 
 [URL03-CloudFront]
 http://d1njvlog13ub7e.cloudfront.net
